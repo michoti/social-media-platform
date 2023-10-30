@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,9 +17,7 @@ class TweetFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => (User::inRandomOrder()->first())->id,
-            'content' => fake()->sentence(),
-            'media_url' => fake()->imageUrl(),
+            //
         ];
     }
 }

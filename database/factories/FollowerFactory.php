@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Tweet>
  */
-class TweetFactory extends Factory
+class FollowerFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,10 +17,12 @@ class TweetFactory extends Factory
      */
     public function definition(): array
     {
+        $user = User::inRandomOrder()->first();
+        $follower = User::where('id', '!=', $user->id)->inRandomOrder()->first();
+
         return [
-            'user_id' => (User::inRandomOrder()->first())->id,
-            'content' => fake()->sentence(),
-            'media_url' => fake()->imageUrl(),
+            'user_id' => $user->id,
+            'follower_id' => $follower->id,
         ];
     }
 }

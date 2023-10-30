@@ -9,7 +9,7 @@ class Tweet extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['content', 'media_url'];
+    protected $fillable = ['user_id', 'content', 'media_url'];
 
     public function user()
     {
