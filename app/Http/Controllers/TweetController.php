@@ -12,7 +12,8 @@ class TweetController extends Controller
     public function index()
     {
         // Retrieve and display a list of tweets
-        $tweets = auth()->user()->following ? auth()->user()->following->load('tweets') : Tweet::latest()->get();
+        // $tweets = auth()->user()->following ? auth()->user()->following->load('tweets') : Tweet::latest()->get();
+        $tweets = Tweet::latest()->get();
         return view('tweets.index', compact('tweets'));
     }
 
